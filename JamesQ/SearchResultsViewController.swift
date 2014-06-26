@@ -10,7 +10,9 @@ import UIKit
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
-    var api: APIController = APIController()
+    //This says we have an object called api who is of type APIController, but we need SearchResultsViewController to be instantiated before we pass self in as a delegate, so we indicate api is a @lazy variable. It will only be created when it’s first used, which is in viewDidLoad() (well after SearchResultsViewController is created)
+    @lazy var api: APIController = APIController(delegate: self)
+    
     var tableData: NSArray = []
     var imageCache = NSMutableDictionary()
     let kCellIdentifier = "SearchResultCell"
@@ -19,7 +21,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.api.delegate = self
         api.searchItunesFor("Clash of Clans")
     }
 

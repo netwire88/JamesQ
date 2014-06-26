@@ -12,10 +12,14 @@ protocol APIControllerProtocol {
     func didReceiveAPIResults(results: NSDictionary)
 }
 
-class APIController: NSObject {
+class APIController {
     
     //include a delegate object, and to call this method when the connection finished loading some API data
     var delegate: APIControllerProtocol?
+    
+    init(delegate: APIControllerProtocol?) {
+        self.delegate = delegate
+    }
     
     func searchItunesFor(searchTerm: String) {
         
