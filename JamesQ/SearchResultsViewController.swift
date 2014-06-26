@@ -31,7 +31,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "MyTestCell")
+        let kCellIdentifier: String = "SearchResultCell"
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
         var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
         
