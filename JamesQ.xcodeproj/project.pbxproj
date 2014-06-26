@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8D8B7C47195BA331009C1110 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8B7C46195BA331009C1110 /* AppDelegate.swift */; };
-		8D8B7C49195BA331009C1110 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8B7C48195BA331009C1110 /* ViewController.swift */; };
+		8D8B7C49195BA331009C1110 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8B7C48195BA331009C1110 /* SearchResultsViewController.swift */; };
 		8D8B7C4C195BA331009C1110 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D8B7C4A195BA331009C1110 /* Main.storyboard */; };
 		8D8B7C4E195BA331009C1110 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D8B7C4D195BA331009C1110 /* Images.xcassets */; };
 		8D8B7C5A195BA332009C1110 /* JamesQTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8B7C59195BA332009C1110 /* JamesQTests.swift */; };
+		8DBAD2E3195BABFD003D8C51 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2E2195BABFD003D8C51 /* APIController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +29,13 @@
 		8D8B7C41195BA331009C1110 /* JamesQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamesQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8B7C45195BA331009C1110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8B7C46195BA331009C1110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D8B7C48195BA331009C1110 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D8B7C48195BA331009C1110 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		8D8B7C4B195BA331009C1110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D8B7C4D195BA331009C1110 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D8B7C53195BA332009C1110 /* JamesQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamesQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8B7C58195BA332009C1110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D8B7C59195BA332009C1110 /* JamesQTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamesQTests.swift; sourceTree = "<group>"; };
+		8DBAD2E2195BABFD003D8C51 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				8D8B7C46195BA331009C1110 /* AppDelegate.swift */,
-				8D8B7C48195BA331009C1110 /* ViewController.swift */,
+				8DBAD2E2195BABFD003D8C51 /* APIController.swift */,
+				8D8B7C48195BA331009C1110 /* SearchResultsViewController.swift */,
 				8D8B7C4A195BA331009C1110 /* Main.storyboard */,
 				8D8B7C4D195BA331009C1110 /* Images.xcassets */,
 				8D8B7C44195BA331009C1110 /* Supporting Files */,
@@ -208,8 +211,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D8B7C49195BA331009C1110 /* ViewController.swift in Sources */,
+				8D8B7C49195BA331009C1110 /* SearchResultsViewController.swift in Sources */,
 				8D8B7C47195BA331009C1110 /* AppDelegate.swift in Sources */,
+				8DBAD2E3195BABFD003D8C51 /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +401,7 @@
 				8D8B7C5F195BA332009C1110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D8B7C60195BA332009C1110 /* Build configuration list for PBXNativeTarget "JamesQTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +410,7 @@
 				8D8B7C62195BA332009C1110 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
