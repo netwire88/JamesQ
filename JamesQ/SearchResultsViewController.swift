@@ -54,6 +54,20 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         return cell
     }
     
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        // Get the row data for the selected row
+        var rowData: NSDictionary = self.tableData[indexPath.row] as NSDictionary
+        
+        var name: String = rowData["trackName"] as String
+        var formattedPrice: String = rowData["formattedPrice"] as String
+        
+        var alert: UIAlertView = UIAlertView()
+        alert.title = name
+        alert.message = formattedPrice
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+    }
+    
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSArray = results["results"] as NSArray
         dispatch_async(dispatch_get_main_queue(), {
