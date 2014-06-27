@@ -36,11 +36,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
         
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
-        }
+//        if cell == nil {
+//            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
+//        }
         
         let album = self.albums[indexPath.row]
         cell.text = album.title
@@ -54,11 +54,11 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             let urlString = album.thumbnailImageURL
             
             // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image: UIImage? = self.imageCache.valueForKey(urlString) as? UIImage
+            var image = self.imageCache.valueForKey(urlString) as? UIImage
             
             if( !image? ) {
                 // If the image does not exist, we need to download it
-                var imgURL: NSURL = NSURL(string: urlString)
+                var imgURL = NSURL(string: urlString)
                 
                 // Download an NSData representation of the image at the URL
                 var request: NSURLRequest = NSURLRequest(URL: imgURL)
@@ -108,9 +108,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
-        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
-        var albumIndex = appsTableView.indexPathForSelectedRow().row  //identify which album was selected
-        var selectedAlbum = self.albums[albumIndex]  //get album
+        let detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+        let albumIndex = appsTableView.indexPathForSelectedRow().row  //identify which album was selected
+        let selectedAlbum = self.albums[albumIndex]  //get album
         detailsViewController.album = selectedAlbum
     }
     
