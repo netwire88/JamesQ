@@ -107,6 +107,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
 //        alert.show()
 //    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject) {
+        var detailsViewController: DetailsViewController = segue.destinationViewController as DetailsViewController
+        var albumIndex = appsTableView.indexPathForSelectedRow().row  //identify which album was selected
+        var selectedAlbum = self.albums[albumIndex]  //get album
+        detailsViewController.album = selectedAlbum
+    }
+    
     func didReceiveAPIResults(results: NSDictionary) {
         // Store the results in our table data array
         if results.count>0 {
