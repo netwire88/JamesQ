@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class SearchResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, APIControllerProtocol {
     
@@ -37,10 +38,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdentifier) as UITableViewCell
-        
-//        if cell == nil {
-//            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: kCellIdentifier)
-//        }
         
         let album = self.albums[indexPath.row]
         cell.text = album.title
@@ -91,6 +88,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             }
         })
         return cell
+    }
+    
+    func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        cell.layer.transform = CATransform3DMakeScale(0.1,0.1,1)
+        UIView.animateWithDuration(0.25, animations: {
+            cell.layer.transform = CATransform3DMakeScale(1,1,1)
+            })
     }
     
 //    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
@@ -151,7 +155,9 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
                     itemURL = result["trackViewUrl"] as? String
                 }
                 
-                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!)
+                var collectionId = result["collectionId"] as? Int
+                var newAlbum = Album(name: name!, price: price!, thumbnailImageURL: thumbnailURL!, largeImageURL: imageURL!, itemURL: itemURL!, artistURL: artistURL!, collectionId: collectionId!)
+                
                 albums.append(newAlbum)
             }
             

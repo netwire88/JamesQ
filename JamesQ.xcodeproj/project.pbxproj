@@ -15,6 +15,8 @@
 		8DBAD2E3195BABFD003D8C51 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2E2195BABFD003D8C51 /* APIController.swift */; };
 		8DBAD2E5195C9ED4003D8C51 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2E4195C9ED4003D8C51 /* Album.swift */; };
 		8DBAD2E9195CBE68003D8C51 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2E8195CBE68003D8C51 /* DetailsViewController.swift */; };
+		8DBAD2EB195D9450003D8C51 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2EA195D9450003D8C51 /* Track.swift */; };
+		8DBAD2F1195F7443003D8C51 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2F0195F7443003D8C51 /* TrackCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		8DBAD2E2195BABFD003D8C51 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		8DBAD2E4195C9ED4003D8C51 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		8DBAD2E8195CBE68003D8C51 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		8DBAD2EA195D9450003D8C51 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		8DBAD2F0195F7443003D8C51 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,8 @@
 				8D8B7C44195BA331009C1110 /* Supporting Files */,
 				8DBAD2E4195C9ED4003D8C51 /* Album.swift */,
 				8DBAD2E8195CBE68003D8C51 /* DetailsViewController.swift */,
+				8DBAD2EA195D9450003D8C51 /* Track.swift */,
+				8DBAD2F0195F7443003D8C51 /* TrackCell.swift */,
 			);
 			path = JamesQ;
 			sourceTree = "<group>";
@@ -217,11 +223,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBAD2F1195F7443003D8C51 /* TrackCell.swift in Sources */,
 				8D8B7C49195BA331009C1110 /* SearchResultsViewController.swift in Sources */,
 				8D8B7C47195BA331009C1110 /* AppDelegate.swift in Sources */,
 				8DBAD2E3195BABFD003D8C51 /* APIController.swift in Sources */,
 				8DBAD2E5195C9ED4003D8C51 /* Album.swift in Sources */,
 				8DBAD2E9195CBE68003D8C51 /* DetailsViewController.swift in Sources */,
+				8DBAD2EB195D9450003D8C51 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
