@@ -17,6 +17,7 @@
 		8DBAD2E9195CBE68003D8C51 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2E8195CBE68003D8C51 /* DetailsViewController.swift */; };
 		8DBAD2EB195D9450003D8C51 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2EA195D9450003D8C51 /* Track.swift */; };
 		8DBAD2F1195F7443003D8C51 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBAD2F0195F7443003D8C51 /* TrackCell.swift */; };
+		F114E16D5CB8443D9252F089 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E71CF8748540858636044D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,9 @@
 		8DBAD2E8195CBE68003D8C51 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		8DBAD2EA195D9450003D8C51 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		8DBAD2F0195F7443003D8C51 /* TrackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		8DBE087D196B73AD00B5E585 /* JamesQ-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JamesQ-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		A9E71CF8748540858636044D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C58FC826C64299AAFAC286 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F114E16D5CB8443D9252F089 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,12 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24FDA12BA99B4DE1B2625894 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9E71CF8748540858636044D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8D8B7C38195BA331009C1110 = {
 			isa = PBXGroup;
 			children = (
 				8D8B7C43195BA331009C1110 /* JamesQ */,
 				8D8B7C56195BA332009C1110 /* JamesQTests */,
 				8D8B7C42195BA331009C1110 /* Products */,
+				B5C58FC826C64299AAFAC286 /* Pods.xcconfig */,
+				24FDA12BA99B4DE1B2625894 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +100,7 @@
 		8D8B7C43195BA331009C1110 /* JamesQ */ = {
 			isa = PBXGroup;
 			children = (
+				8DBE087D196B73AD00B5E585 /* JamesQ-Bridging-Header.h */,
 				8D8B7C46195BA331009C1110 /* AppDelegate.swift */,
 				8DBAD2E2195BABFD003D8C51 /* APIController.swift */,
 				8D8B7C48195BA331009C1110 /* SearchResultsViewController.swift */,
@@ -131,9 +147,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D8B7C5D195BA332009C1110 /* Build configuration list for PBXNativeTarget "JamesQ" */;
 			buildPhases = (
+				3F7AEDA54CD445618B1AF167 /* Check Pods Manifest.lock */,
 				8D8B7C3D195BA331009C1110 /* Sources */,
 				8D8B7C3E195BA331009C1110 /* Frameworks */,
 				8D8B7C3F195BA331009C1110 /* Resources */,
+				B5CD3B07DE544906A3D369ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -217,6 +235,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F7AEDA54CD445618B1AF167 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5CD3B07DE544906A3D369ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D8B7C3D195BA331009C1110 /* Sources */ = {
@@ -343,6 +394,7 @@
 		};
 		8D8B7C5E195BA332009C1110 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C58FC826C64299AAFAC286 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -350,11 +402,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamesQ-Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		8D8B7C5F195BA332009C1110 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C58FC826C64299AAFAC286 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -362,6 +416,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JamesQ-Bridging-Header.h";
 			};
 			name = Release;
 		};

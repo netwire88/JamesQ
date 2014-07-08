@@ -22,7 +22,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         api.searchItunesFor("Bob Dylan");
     }
 
@@ -31,7 +30,7 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         // Dispose of any resources that can be recreated.
     }
 
-    func tableView(tableView: UITableView!, numberOfRowsInSection section:    Int) -> Int {
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return albums.count
     }
     
@@ -117,7 +116,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         let selectedAlbum = self.albums[albumIndex]  //get album
         detailsViewController.album = selectedAlbum
     }
-    
+
+    //TODO: Refactor into Model class
     func didReceiveAPIResults(results: NSDictionary) {
         // Store the results in our table data array
         if results.count>0 {
@@ -165,7 +165,6 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
             dispatch_async(dispatch_get_main_queue(), {
                 self.appsTableView.reloadData()  //reload our table view in the main thread
                 })
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false //turn off network activity indicator
         }
     }
 }
