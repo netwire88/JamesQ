@@ -15,8 +15,8 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
     @lazy var api: APIController = APIController(delegate: self)
     
     var albums: Album[] = []
-    var imageCache = NSMutableDictionary()
     let kCellIdentifier = "SearchResultCell"
+    let placeholderImage = UIImage(named: "Icon52")
     @IBOutlet var appsTableView : UITableView
     
     override func viewDidLoad() {
@@ -40,52 +40,13 @@ class SearchResultsViewController: UIViewController, UITableViewDataSource, UITa
         
         let album = self.albums[indexPath.row]
         cell.text = album.title
-        cell.image = UIImage(named: "Icon52")
         cell.detailTextLabel.text = album.price
         
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            // Jump in to a background thread to get the image for this item
-            
-            // Grab the artworkUrl60 key to get an image URL for the app's thumbnail
-            let urlString = album.thumbnailImageURL
-            
-            // Check our image cache for the existing key. This is just a dictionary of UIImages
-            var image = self.imageCache.valueForKey(urlString) as? UIImage
-            
-            if( !image? ) {
-                // If the image does not exist, we need to download it
-                var imgURL = NSURL(string: urlString)
-                
-                // Download an NSData representation of the image at the URL
-                var request: NSURLRequest = NSURLRequest(URL: imgURL)
-                var urlConnection: NSURLConnection = NSURLConnection(request: request, delegate: self)
-                NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
-                    if !error? {
-                        //var imgData: NSData = NSData(contentsOfURL: imgURL)
-                        image = UIImage(data: data)
-                        
-                        // Store the image in to our cache
-                        self.imageCache[urlString!] = image
-                        
-                        // Sometimes this request takes a while, and it's possible that a cell could be re-used before the art is done loading.
-                        // Let's explicitly call the cellForRowAtIndexPath method of our tableView to make sure the cell is not nil, and therefore still showing onscreen.
-                        // While this method sounds a lot like the method we're in right now, it isn't.
-                        // Ctrl+Click on the method name to see how it's defined, including the following comment:
-                        /** // returns nil if cell is not visible or index path is out of range **/
-                        if let albumArtsCell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath) {
-                            albumArtsCell!.image = image
-                        }
-                    }
-                    else {
-                        println("Error: \(error.localizedDescription)")
-                    }
-                    })
-                
-            }
-            else {
-                cell.image = image
-            }
-        })
+//        let requestURL = NSURLRequest(URL: album.thumbnailImageURL)
+        cell.imageView.setImageWithURL(
+            album.thumbnailImageURL,
+            placeholderImage: placeholderImage
+        )
         return cell
     }
     

@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = self.album?.title
-        albumCover.image = UIImage(data: NSData(contentsOfURL: NSURL(string: self.album?.largeImageURL)))
+        albumCover.image = UIImage(data: NSData(contentsOfURL: self.album?.largeImageURL))
         if self.album?.collectionId? {
             api.lookupAlbum(self.album!.collectionId!)
         }

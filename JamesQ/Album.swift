@@ -9,21 +9,21 @@
 import Foundation
 
 class Album {
-    var title: String?
+    var title: String?  //mark as optional
     var price: String?
-    var thumbnailImageURL: String?
-    var largeImageURL: String?
-    var itemURL: String?
-    var artistURL: String?
+    var thumbnailImageURL: NSURL?
+    var largeImageURL: NSURL?
+    var itemURL: NSURL?
+    var artistURL: NSURL?
     var collectionId: Int?
     
     init(name: String!, price: String!, thumbnailImageURL: String!, largeImageURL: String!, itemURL: String!, artistURL: String!, collectionId: Int?) {
         self.title = name
         self.price = price
-        self.thumbnailImageURL = thumbnailImageURL
-        self.largeImageURL = largeImageURL
-        self.itemURL = itemURL
-        self.artistURL = artistURL
+        self.thumbnailImageURL = NSURL(string: thumbnailImageURL)
+        self.largeImageURL = NSURL(string: largeImageURL)
+        self.itemURL = NSURL(string: itemURL)
+        self.artistURL = NSURL(string: artistURL)
         self.collectionId = collectionId
     }
 }

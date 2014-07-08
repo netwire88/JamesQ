@@ -26,7 +26,7 @@ class APIController {
         let manager = AFHTTPRequestOperationManager()
 //        manager.requestSerializer.setValue(“608c6c08443c6d933576b90966b727358d0066b4", forHTTPHeaderField: “X-Auth-Token”)
         manager.GET(
-            url, //NSString format
+            url, //String format
             parameters: nil,
             success: { (operation: AFHTTPRequestOperation!,
                 responseObject: AnyObject!) in
